@@ -1,18 +1,9 @@
 package org.pursuit.lipstickrush.model;
 
-import com.google.gson.annotations.SerializedName;
-
+import java.io.Serializable;
 import java.util.List;
 
-public class MakeupPOJO {
-
-
-    public List<MakeupPOJO> getMakeupPOJOList() {
-        return makeupPOJOList;
-    }
-
-    @SerializedName("MakeupPOJO")
-    private List<MakeupPOJO>makeupPOJOList;
+public class MakeupPOJO implements Serializable {
     private int id;
     private String brand;
     private String name;
@@ -26,22 +17,21 @@ public class MakeupPOJO {
     private String rating;
     private String category;
     private String product_type;
-    private List<TagList> tag_list;
+    private String[]tag_list;
     private String created_at;
     private String updated_at;
     private String product_api_url;
     private String api_featured_image;
     private List<ProductsColors>product_colors;
 
-    public MakeupPOJO(List<MakeupPOJO> makeupPOJOList, int id, String brand, String name,
+    public MakeupPOJO(int id, String brand, String name,
                       String price, String price_sign, String currency,
                       String image_link, String product_link,
                       String website_link, String description,
                       String rating, String category, String product_type,
-                      List<TagList> tag_list, String created_at, String updated_at,
+                      String[]tag_list, String created_at, String updated_at,
                       String product_api_url, String api_featured_image,
                       List<ProductsColors> product_colors) {
-        this.makeupPOJOList = makeupPOJOList;
         this.id = id;
         this.brand = brand;
         this.name = name;
@@ -62,7 +52,6 @@ public class MakeupPOJO {
         this.api_featured_image = api_featured_image;
         this.product_colors = product_colors;
     }
-
     public int getId() {
         return id;
     }
@@ -115,7 +104,7 @@ public class MakeupPOJO {
         return product_type;
     }
 
-    public List<TagList> getTag_list() {
+    public String[] getTag_list() {
         return tag_list;
     }
 

@@ -12,7 +12,6 @@ public class DisplayActivity extends AppCompatActivity {
     private ImageView imageView;
     private TextView brand;
     private TextView name;
-    private TextView type;
     private TextView descrip;
     private TextView urlLink;
     @Override
@@ -22,22 +21,19 @@ public class DisplayActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        brand = findViewById(R.id.brandname);
-        imageView = findViewById(R.id.product_image);
-        name = findViewById(R.id.productname);
-        type = findViewById(R.id.producttype);
-        descrip = findViewById(R.id.description);
-        urlLink = findViewById(R.id.linktext);
+        brand = findViewById(R.id.brand_display);
+        imageView = findViewById(R.id.image_display);
+        name = findViewById(R.id.productname_display);
+        descrip = findViewById(R.id.decrip_display);
+        urlLink = findViewById(R.id.link_display);
 
         String brandName = intent.getStringExtra("brand");
         String productName = intent.getStringExtra("name");
-        String productType = intent.getStringExtra("type");
         String descriptionText = intent.getStringExtra("description");
         String websiteLink = intent.getStringExtra("website");
 
         brand.setText(brandName);
         name.setText(productName);
-        type.setText(productType);
         descrip.setText(descriptionText);
         urlLink.setText(websiteLink);
 

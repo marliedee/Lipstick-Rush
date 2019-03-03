@@ -1,19 +1,14 @@
 package org.pursuit.lipstickrush.model;
 
 class TagList {
-    private String vegan;
-    private String cruelty_free;
 
-    public TagList(String vegan, String cruelty_free) {
-        this.vegan = vegan;
-        this.cruelty_free = cruelty_free;
-    }
-    public String getVegan() {
-        return vegan;
+    public TagList(String[] tag_list) {
+        this.tag_list = tag_list;
     }
 
-    public String getCrueltyfree() {
-        return cruelty_free;
+    public String[] getTag_list() {
+        return tag_list;
     }
 
-}
+    private String[] tag_list;
+    }

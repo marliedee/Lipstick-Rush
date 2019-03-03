@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,7 +16,6 @@ import org.pursuit.lipstickrush.model.MakeupPOJO;
 import org.pursuit.lipstickrush.network.MakeUpRetrofit;
 import org.pursuit.lipstickrush.network.MakeUpService;
 
-import java.net.SocketTimeoutException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -29,6 +27,7 @@ public class SecondActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private Retrofit retro;
     private String TAG = "SECOND_ACTIVITY";
+
     @NonNull
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,21 +44,30 @@ public class SecondActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.lipstick_rush_RV);
         retro = MakeUpRetrofit.getInstance();
         MakeUpService service = retro.create(MakeUpService.class);
-        Call<MakeupPOJO> makeupPOJOCall = service.getMakeUpDetails();
-        makeupPOJOCall.enqueue(new Callback<MakeupPOJO>() {
+        final Call<List<MakeupPOJO>> makeupPOJOCall = service.getMakeUpDetails();
+        makeupPOJOCall.enqueue(new Callback<List<MakeupPOJO>>() {
             @Override
-            public void onResponse(Call<MakeupPOJO> call, Response<MakeupPOJO> response) {
-                recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
-                LipstickRushAdapter adapter = new LipstickRushAdapter((response.body().getMakeupPOJOList()));
+            public void onResponse(Call<List<MakeupPOJO>> call, Response<List<MakeupPOJO>> response) {
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+                linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                linearLayoutManager.setSmoothScrollbarEnabled(true);
+                linearLayoutManager.scrollToPosition(R.id.brandname);
+                linearLayoutManager.canScrollVertically();
+
+                recyclerView.setLayoutManager(linearLayoutManager);
+
+                LipstickRushAdapter adapter = new LipstickRushAdapter(response.body());
+
+                recyclerView.hasFixedSize();
                 recyclerView.setAdapter(adapter);
             }
 
             @Override
-            public void onFailure(Call<MakeupPOJO> call, Throwable t) {
+            public void onFailure(Call<List<MakeupPOJO>> call, Throwable t) {
                 Log.d(TAG, "onResponse: " + t.getMessage());
-                if (t instanceof SocketTimeoutException) {
-                    String message = "Socket Time out. Please try again.";
-                }
+//                if (t instanceof SocketTimeoutException) {
+//                    String message = "Socket Time out. Please try again.";
+//                }
             }
 
     });

@@ -7,11 +7,13 @@
     tools:context=".DisplayActivity">
 
     <ImageView
+        android:id="@+id/image_display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/logo_backgroud"/>
 
     <TextView
+        android:id="@+id/brand_display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
@@ -19,6 +21,7 @@
         />
 
     <TextView
+        android:id="@+id/productname_display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
@@ -26,17 +29,13 @@
         />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:textSize="12sp"/>
-
-    <TextView
+        android:id="@+id/decrip_display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:textSize="12sp"/>
     <TextView
+        android:id="@+id/link_display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
