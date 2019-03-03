@@ -1,5 +1,8 @@
 package org.pursuit.lipstickrush.network;
 
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

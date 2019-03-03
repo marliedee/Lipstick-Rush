@@ -1,10 +1,18 @@
 package org.pursuit.lipstickrush.model;
 
+import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
 public class MakeupPOJO {
 
+
+    public List<MakeupPOJO> getMakeupPOJOList() {
+        return makeupPOJOList;
+    }
+
+    @SerializedName("MakeupPOJO")
+    private List<MakeupPOJO>makeupPOJOList;
     private int id;
     private String brand;
     private String name;
@@ -25,7 +33,7 @@ public class MakeupPOJO {
     private String api_featured_image;
     private List<ProductsColors>product_colors;
 
-    public MakeupPOJO(int id, String brand, String name,
+    public MakeupPOJO(List<MakeupPOJO> makeupPOJOList, int id, String brand, String name,
                       String price, String price_sign, String currency,
                       String image_link, String product_link,
                       String website_link, String description,
@@ -33,6 +41,7 @@ public class MakeupPOJO {
                       List<TagList> tag_list, String created_at, String updated_at,
                       String product_api_url, String api_featured_image,
                       List<ProductsColors> product_colors) {
+        this.makeupPOJOList = makeupPOJOList;
         this.id = id;
         this.brand = brand;
         this.name = name;
@@ -53,7 +62,6 @@ public class MakeupPOJO {
         this.api_featured_image = api_featured_image;
         this.product_colors = product_colors;
     }
-
 
     public int getId() {
         return id;
