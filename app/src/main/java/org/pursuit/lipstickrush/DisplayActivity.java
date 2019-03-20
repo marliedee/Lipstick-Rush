@@ -3,6 +3,7 @@ package org.pursuit.lipstickrush;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,7 +35,7 @@ public class DisplayActivity extends AppCompatActivity {
 
         brand.setText(brandName);
         name.setText(productName);
-        descrip.setText(descriptionText);
+        descrip.setText(Html.fromHtml(descriptionText));
         urlLink.setText(websiteLink);
         Picasso.get().load(intent.getStringExtra("image")).into(imageView);
     }

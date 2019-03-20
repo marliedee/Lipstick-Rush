@@ -3,6 +3,7 @@ package org.pursuit.lipstickrush.view;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ public class LipstickRushViewHolder extends RecyclerView.ViewHolder {
     public void onBind(final MakeupPOJO makeupPOJO) {
         textViewRV.setText(makeupPOJO.getBrand());
         textViewRV2.setText(makeupPOJO.getName());
-        textViewRV4.setText(makeupPOJO.getDescription());
+        textViewRV4.setText(Html.fromHtml(makeupPOJO.getDescription()));
         textViewRV5.setText(makeupPOJO.getWebsite_link());
 
         itemView.setOnClickListener(new View.OnClickListener() {
