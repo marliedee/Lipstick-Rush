@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class MakeupPOJO implements Serializable {
+
     private int id;
     private String brand;
     private String name;
@@ -29,7 +30,7 @@ public class MakeupPOJO implements Serializable {
                       String image_link, String product_link,
                       String website_link, String description,
                       String rating, String category, String product_type,
-                      String[]tag_list, String created_at, String updated_at,
+                      String[] tag_list, String created_at, String updated_at,
                       String product_api_url, String api_featured_image,
                       List<ProductsColors> product_colors) {
         this.id = id;
@@ -127,7 +128,5 @@ public class MakeupPOJO implements Serializable {
     public List<ProductsColors> getProduct_colors() {
         return product_colors;
     }
-
-
 
 }

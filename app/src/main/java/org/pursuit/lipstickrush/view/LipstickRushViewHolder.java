@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.pursuit.lipstickrush.DisplayActivity;
@@ -12,7 +11,6 @@ import org.pursuit.lipstickrush.R;
 import org.pursuit.lipstickrush.model.MakeupPOJO;
 
 public class LipstickRushViewHolder extends RecyclerView.ViewHolder {
-    private ImageView imageView;
     private TextView textViewRV;
     private TextView textViewRV2;
     private TextView textViewRV4;
@@ -20,7 +18,6 @@ public class LipstickRushViewHolder extends RecyclerView.ViewHolder {
 
     public LipstickRushViewHolder(@NonNull View itemView) {
         super(itemView);
-        imageView = itemView.findViewById(R.id.product_image);
         textViewRV = itemView.findViewById(R.id.brandname);
         textViewRV2 = itemView.findViewById(R.id.productname);
         textViewRV4 = itemView.findViewById(R.id.description);
@@ -28,7 +25,6 @@ public class LipstickRushViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void onBind(final MakeupPOJO makeupPOJO) {
-        imageView.setImageResource(R.drawable.xoxo);
         textViewRV.setText(makeupPOJO.getBrand());
         textViewRV2.setText(makeupPOJO.getName());
         textViewRV4.setText(makeupPOJO.getDescription());

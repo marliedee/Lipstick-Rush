@@ -14,7 +14,6 @@ import java.util.List;
 public class LipstickRushAdapter extends RecyclerView.Adapter<LipstickRushViewHolder> {
     private List<MakeupPOJO> makeupPOJOList;
 
-
     public LipstickRushAdapter(List<MakeupPOJO> makeupPOJOList) {
         this.makeupPOJOList = makeupPOJOList;
     }

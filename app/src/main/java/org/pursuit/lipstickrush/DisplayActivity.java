@@ -36,7 +36,6 @@ public class DisplayActivity extends AppCompatActivity {
         name.setText(productName);
         descrip.setText(descriptionText);
         urlLink.setText(websiteLink);
-
         Picasso.get().load(intent.getStringExtra("image")).into(imageView);
     }
 }
